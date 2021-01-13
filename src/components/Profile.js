@@ -15,13 +15,6 @@ const Profile = ({ profiles, loading }) => {
 					<p className="payment">{profile.PaymentMethod}</p>
 				</div>
 				<div className="card-back">
-					{/* <h3 className="name mb-1">
-						{profile.FirstName + " " + profile.LastName}
-					</h3> */}
-					<div className="more-info">
-						<Place />
-						<p className="">{profile.TimeZone}</p>
-					</div>
 					<div className="more-info">
 						<Mail />
 						<p className="">{profile.Email}</p>
