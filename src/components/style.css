@@ -193,6 +193,7 @@ select:active {
 	height: 100%;
 	padding: 5px 15px;
 	color: gray;
+	cursor: pointer;
 }
 
 @media (min-width: 320px) {

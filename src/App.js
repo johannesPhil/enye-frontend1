@@ -6,11 +6,11 @@ import Profile from "./components/Profile";
 import Pagination from "./components/Pagination";
 
 function App() {
-	const API_KEY = "44c5b2073bd947b79c82ce050a72c597";
+	// const API_KEY = "44c5b2073bd947b79c82ce050a72c597";
 	const [profiles, setProfiles] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [currentPage, setcurrentPage] = useState(1);
-	const [profilePerPage, setProfilePerPage] = useState(20);
+	const [profilePerPage] = useState(20);
 	const [searchTerm, setsearchTerm] = useState("");
 
 	useEffect(() => {
@@ -23,23 +23,22 @@ function App() {
 
 		const result = res.data.records.profiles;
 
-		const loc = await Promise.all(
-			result.map((profile) => {
-				axios
-					.get(
-						`https://api.openweathermap.org/data/2.5/onecall?lat=${profile.Latitude}&lon=${profile.Longitude}&appid=${API_KEY}&units=metric`
-					)
-					.then((res) => {
-						const timezone = res.data.timezone;
-						profile["TimeZone"] = timezone;
-					});
-			})
-		);
+		/* TODO: Enable  timezone detection from the Longitude and Latitude data */
 
-		console.log(loc);
+		// const loc = await Promise.all(
+		// 	result.map((profile) => {
+		// 		axios
+		// 			.get(
+		// 				`https://api.openweathermap.org/data/2.5/onecall?lat=${profile.Latitude}&lon=${profile.Longitude}&appid=${API_KEY}&units=metric`
+		// 			)
+		// 			.then((res) => {
+		// 				const timezone = res.data.timezone;
+		// 				profile["TimeZone"] = timezone;
+		// 			});
+		// 	})
+		// );
 
 		setProfiles(result);
-		console.log(result.TimeZone);
 		localStorage.setItem("profiles", JSON.stringify(result));
 		setLoading(false);
 	};
@@ -47,7 +46,6 @@ function App() {
 	const refresh = () => {
 		setLoading(true);
 		const saved = JSON.parse(localStorage.getItem("profiles"));
-		console.log(saved);
 		setProfiles(saved);
 		setLoading(false);
 	};
@@ -64,7 +62,6 @@ function App() {
 			return profile.UserName.toLowerCase().includes(term.toLowerCase());
 		});
 		setProfiles(searchResult);
-		console.log(searchResult);
 	};
 	const searchGender = (event) => {
 		const gender = event.target.value;
@@ -80,7 +77,6 @@ function App() {
 			return profile.PaymentMethod === method;
 		});
 		setProfiles(searchResult);
-		console.log(searchResult);
 	};
 
 	if (loading) {
