@@ -1,0 +1,217 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+}
+
+.search,
+.filter {
+	display: flex;
+	padding: 1rem;
+	margin: 10px 0;
+	background: #fff;
+}
+
+input,
+select {
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+	background: transparent;
+	border: none;
+}
+
+input:focus,
+input:active,
+select:focus,
+select:active {
+	outline: solid 1px #6462d9;
+}
+
+.filter * {
+	margin: 0 10px;
+}
+
+.card {
+	/* height: 300px;
+	width: 280px; */
+	display: grid;
+	grid-template-columns: minmax(200px, 400px);
+	margin: 20px auto;
+	background: transparent;
+	box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	color: rgb(107, 106, 106);
+	perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.card-inner {
+	/* position: relative;
+	width: 100%;
+	height: 100%; */
+	display: grid;
+	grid-template: 1fr/1fr;
+
+	grid-template-areas: "frontAndBack";
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+	-webkit-transition: transform 0.8s;
+	-moz-transition: transform 0.8s;
+	-ms-transition: transform 0.8s;
+	-o-transition: transform 0.8s;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.card:hover .card-inner {
+	transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+}
+
+/* Position the front and back side */
+.card-front,
+.card-back {
+	/* position: absolute;
+	width: 100%;
+	height: 100%; */
+	display: grid;
+	padding: 20px;
+	grid-template-columns: minmax(200px, 400px);
+	grid-area: frontAndback;
+	align-items: center;
+	justify-items: center;
+	-webkit-backface-visibility: hidden; /* Safari */
+	backface-visibility: hidden;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	/* display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; */
+}
+
+/* Style the front side (fallback if image is missing) */
+.card-front {
+	background-color: #fff;
+}
+
+/* Style the back side */
+.card-back {
+	background-color: #fff;
+	color: white;
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+}
+
+.username {
+	text-transform: capitalize;
+}
+
+.name {
+	font-size: 14px;
+}
+
+.payment {
+	padding: 10px 20px;
+	background: #6462d917;
+	color: #6462d9;
+	font-weight: bold;
+	border-radius: 5px;
+	text-transform: capitalize;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+
+.avi {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	background: #6462d9dc;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+}
+
+.more-info {
+	width: 100%;
+	margin: 10px auto;
+	padding: 5px 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #6462d917;
+	color: #6462d9;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	text-transform: lowercase;
+}
+
+.page-nav {
+	display: block;
+}
+
+.pagination {
+	display: flex;
+}
+
+.page-item {
+	/* padding: 5px 15px; */
+	margin: 5px 20px;
+	background: #fff;
+	box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+
+.page-link {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 5px 15px;
+	color: gray;
+}
+
+@media (min-width: 320px) {
+	.search,
+	.filter {
+		min-width: 100%;
+	}
+}
+
+@media (min-width: 500px) {
+}
+
+@media (min-width: 700px) {
+	.search,
+	.filter {
+		min-width: 200px;
+		max-width: 300px;
+	}
+}
+
+@media (min-width: 1000px) {
+}
