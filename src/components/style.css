@@ -188,7 +188,9 @@ select:active {
 }
 
 .page-link {
-	display: block;
+	background: #fff;
+	border: none;
+	outline: none;
 	width: 100%;
 	height: 100%;
 	padding: 5px 15px;

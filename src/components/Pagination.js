@@ -11,9 +11,9 @@ const Pagination = ({ profilePerPage, totalProfile, changePage }) => {
 			<ul className="pagination">
 				{pageNumbers.map((page) => (
 					<li key={page} className="page-item">
-						<a className="page-link" onClick={() => changePage(page)}>
+						<button className="page-link" onClick={() => changePage(page)}>
 							{page}
-						</a>
+						</button>
 					</li>
 				))}
 			</ul>
